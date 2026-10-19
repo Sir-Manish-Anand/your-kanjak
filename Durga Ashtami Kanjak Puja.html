@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SHAKTI · Durga Ashtami Kanjak Puja</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Inter:wght@400;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--g:#f4c15a;--ink:#fff3de;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:inherit;-webkit-tap-highlight-color:transparent;user-select:none}
+html,body{height:100%;margin:0;background:#12040c;color:var(--ink);font:400 15px Inter,system-ui,sans-serif;overflow:hidden}
+.bg{position:fixed;inset:0;overflow:hidden}.bg i{position:absolute;width:70vmax;height:70vmax;border-radius:50%;filter:blur(70px);opacity:.5;animation:dr 18s ease-in-out infinite alternate}
+.bg i:nth-child(1){background:#c2410c;left:-30vmax;top:-25vmax}.bg i:nth-child(2){background:#9d174d;right:-35vmax;top:20vh;animation-delay:-6s}.bg i:nth-child(3){background:#4c1d95;left:-10vmax;bottom:-45vmax;animation-delay:-11s}
+@keyframes dr{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:6}
+#app{position:relative;z-index:3;height:100%;display:flex;flex-direction:column}
+#art{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:34px 10px 6px;transition:all .8s}
+#art>svg{height:100%;max-width:100%}
+.col{display:flex;flex-direction:column;align-items:center;height:100%;min-height:0;position:relative}.col>svg{flex:1;min-height:0;max-width:100%}
+#sheet{margin:0 12px 12px;padding:16px 18px;border-radius:28px;background:#ffffff12;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid #ffe6aa38;box-shadow:0 20px 60px #0008,inset 0 1px #ffffff30;text-align:center;transition:all .8s}
+.out #art{opacity:0;filter:blur(12px);transform:scale(1.12)}.out #sheet{opacity:0;transform:translateY(40px)}
+#k{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--g)}
+#t{font:italic 600 32px/1.1 'Cormorant Garamond',serif;margin:6px 0}
+#p{margin:0 auto 12px;max-width:36ch;opacity:.85;line-height:1.5;font-size:14px;min-height:20px}
+button{font:600 13px Inter;letter-spacing:.14em;text-transform:uppercase;border:0;border-radius:50px;padding:15px 26px;width:100%;color:#2a0d00;background:linear-gradient(135deg,#ffe8a8,#e5a93f 55%,#b8791a);box-shadow:0 10px 30px #f4c15a44;cursor:pointer;transition:transform .2s}
+button:active{transform:scale(.96)}button.pop{animation:pop .8s}@keyframes pop{40%{transform:scale(1.07);box-shadow:0 0 50px #f4c15a}}
+#re{display:none;background:none;box-shadow:none;color:var(--g);margin-top:4px;padding:10px}
+#top{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:14px;right:14px;z-index:9;display:flex;gap:5px;align-items:center}
+#top b{flex:1;height:3px;border-radius:3px;background:#ffffff26}#top b.on{background:var(--g);box-shadow:0 0 8px var(--g)}
+#snd{width:34px;height:34px;padding:0;margin-left:8px;border-radius:50%;background:#ffffff1c;color:var(--g);box-shadow:none;font-size:15px}
+input{width:min(300px,84vw);padding:16px;border-radius:50px;border:1px solid #ffe6aa55;background:#ffffff14;color:var(--ink);font:600 18px 'Cormorant Garamond',serif;text-align:center;outline:none;user-select:text;backdrop-filter:blur(10px)}
+.card{max-width:310px;padding:24px 22px;border-radius:26px;text-align:center;background:linear-gradient(160deg,#ffffff20,#ffffff08);border:1px solid #ffe6aa55;box-shadow:0 0 60px #f4a21e44,inset 0 0 40px #f4c15a1a;animation:rise 1.2s both}
+.card span{font:44px 'Tiro Devanagari Hindi',serif;color:var(--g)}.card h3{font:italic 600 28px 'Cormorant Garamond',serif;margin:6px 0;color:var(--g)}.card p{margin:8px 0;line-height:1.55;font-size:14px}.card em{font-size:11px;letter-spacing:.2em;opacity:.6}
+@keyframes rise{from{opacity:0;transform:translateY(22px) scale(.95)}}
+.sh{transition:filter 2s}.sh.lit{filter:drop-shadow(0 0 28px #ffa21e99) brightness(1.2)}.dim{filter:brightness(.5)}
+.row{display:flex;gap:12px;margin:6px 0 0}
+.diya{width:48px;height:42px;position:relative;cursor:pointer}.diya:before{content:"";position:absolute;bottom:0;left:0;right:0;height:20px;border-radius:0 0 48px 48px;background:linear-gradient(#f0b94a,#7a4308);box-shadow:0 6px 10px #000a}
+.flame{position:absolute;left:50%;margin-left:-7px;bottom:16px;width:14px;height:0;opacity:0;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;background:radial-gradient(#fff 8%,#ffd24a 38%,#ff7a12 80%);box-shadow:0 0 24px 9px #ff9a2e88;transition:all .6s;transform-origin:bottom}
+.diya.on .flame,.plate .flame{height:26px;opacity:1;animation:fl .16s infinite alternate}@keyframes fl{from{transform:scale(1) skewX(-4deg)}to{transform:scale(.86,1.14) skewX(5deg)}}
+.orb{position:absolute;left:50%;bottom:9%;width:0;height:0}.plate{position:absolute;left:-42px;top:-42px;width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff0a8,#d89a22 45%,#6b3d06);box-shadow:0 14px 26px #000a,0 0 44px #ffa31a88;animation:orb 3.4s linear infinite}
+@keyframes orb{from{transform:rotate(0) translateX(50px) rotate(0)}to{transform:rotate(360deg) translateX(50px) rotate(-360deg)}}
+.plate .flame{height:20px;width:11px;margin:0;left:36px;top:-14px;bottom:auto}.smoke{position:absolute;left:34px;top:-10px;width:26px;height:26px;border-radius:50%;background:#fff3;filter:blur(10px);animation:sm 3.6s infinite}@keyframes sm{from{transform:translate(0,0) scale(.5);opacity:.6}to{transform:translate(20px,-190px) scale(2.8);opacity:0}}
+.tray{perspective:760px;width:300px;height:300px;touch-action:none;cursor:grab;flex:none}.plane{position:relative;width:280px;height:280px;margin:10px;transform-style:preserve-3d;transform:rotateX(56deg) rotateZ(var(--r,0deg));transition:transform .15s}
+.it{position:absolute;transform-style:preserve-3d;animation:drop 1s cubic-bezier(.3,1.5,.5,1) both}@keyframes drop{from{transform:translateZ(300px) scale(1.4);opacity:0}}
+.thali{inset:0;border-radius:50%;background:radial-gradient(circle at 50% 45%,#f9dd85,#d9a032 58%,#fbe9a8 61%,#a46c12 66%,#e8c05a 72%,#6b3c06);box-shadow:0 36px 40px #000c,inset 0 0 0 4px #ffe9a3;animation:none}
+.thali:before{content:"";position:absolute;inset:30px;border:2px dashed #8a58104d;border-radius:50%}.thali:after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(transparent,#fff5 7%,transparent 18%,transparent 52%,#fff4 60%,transparent 72%)}
+.bowl{border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe9a0,#d39a2b 55%,#6a3d05);box-shadow:0 10px 14px #000b}.bowl b{position:absolute;inset:9px;border-radius:50%}.bowl u{position:absolute;left:44%;top:44%;border-radius:50%;text-decoration:none}
+.puri{border-radius:50%;background:radial-gradient(#7a3f0a66 1.2px,transparent 2px) 0 0/10px 10px,radial-gradient(circle at 40% 30%,#ffd98a,#d8932d 60%,#9a5a10);box-shadow:0 5px 7px #000a}
+.mg{border-radius:50%;background:radial-gradient(#b34700 14%,#ff9a00 40%,#ffc21a 70%,#e87800);box-shadow:0 3px 5px #0008,inset 0 0 0 2px #ffb30088}
+.note{width:80px;height:44px;border-radius:5px;background:linear-gradient(135deg,#ffe38a,#d9a62e);border:2px solid #7a4e08;box-shadow:0 6px 8px #000a;display:grid;place-items:center;color:#5a3300;font:600 18px Inter;transform:rotate(-20deg)}
+.tl{transform-origin:206px 299px;animation:sw 2s ease-in-out infinite alternate}@keyframes sw{to{transform:rotate(-9deg)}}
+.hint{animation:hn 1.4s infinite}@keyframes hn{50%{opacity:.2}}.ky{opacity:.3;transition:all .8s}.ky.on{opacity:1;filter:drop-shadow(0 0 10px #ffc04a)}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="sk" gradientUnits="userSpaceOnUse" x1="50" x2="250"><stop offset="0" stop-color="#c07c52"/><stop offset=".5" stop-color="#efb88e"/><stop offset="1" stop-color="#c07c52"/></linearGradient>
+<linearGradient id="gd" gradientUnits="userSpaceOnUse" x1="0" x2="300"><stop offset="0" stop-color="#8a5a0c"/><stop offset=".5" stop-color="#ffe08a"/><stop offset="1" stop-color="#8a5a0c"/></linearGradient>
+<radialGradient id="hl"><stop offset="0" stop-color="#fff2a8"/><stop offset=".5" stop-color="#ffb43a" stop-opacity=".7"/><stop offset="1" stop-color="#ff7a12" stop-opacity="0"/></radialGradient></defs></svg>
+<div class="bg"><i></i><i></i><i></i></div><canvas id="c"></canvas>
+<div id="top"><button id="snd" style="display:none">♪</button></div>
+<div id="app"><div id="art"></div><div id="sheet"><div id="k"></div><div id="t"></div><div id="p"></div><button id="go"></button><button id="re" onclick="go(1)">↺ Replay</button></div></div>
+<script>
+const $=s=>document.querySelector(s),cv=$('#c'),cx=cv.getContext('2d');
+let W,H,D=Math.min(devicePixelRatio||1,2),P=[],AC,music=null,scene=0,fall=false,A=null,NM='';
+function rs(){W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;cx.setTransform(D,0,0,D,0,0)}rs();addEventListener('resize',rs);
+const COL=['#ff8a00','#ffb300','#ffd23f','#ff4f6d','#e8334a','#ff9f1c'];
+for(let i=0;i<50;i++)P.push({t:'d',x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.5,vx:(Math.random()-.5)*.2,vy:-Math.random()*.3-.05,a:Math.random()*6});
+function petal(x,y,vx,vy,f,g=.12){P.push({t:f?'f':'p',x,y,vx,vy,r:f?9+Math.random()*6:5+Math.random()*5,rot:Math.random()*6,vr:(Math.random()-.5)*.2,c:COL[Math.random()*6|0],life:1,g})}
+function burst(x,y,n){for(let i=0;i<n;i++){const a=Math.random()*6.28,s=Math.random()*6+1.5;petal(x,y,Math.cos(a)*s,Math.sin(a)*s-3,i%4==0)}}
+const ell=(r,c)=>{cx.fillStyle=c;cx.beginPath();cx.ellipse(0,0,r,r*.5,0,0,6.3);cx.fill()};
+(function loop(){cx.clearRect(0,0,W,H);
+ if(fall&&Math.random()<.3)petal(Math.random()*W,-20,(Math.random()-.5)*.8,1+Math.random(),Math.random()<.2,0);
+ if(Math.random()<.03)petal(Math.random()*W,-20,(Math.random()-.5)*.6,.8+Math.random()*.6,0,0);
+ for(let i=P.length-1;i>=0;i--){const p=P[i];p.x+=p.vx;p.y+=p.vy;
+  if(p.t=='d'){p.a+=.02;if(p.y<-5)p.y=H+5;cx.globalAlpha=.4+.4*Math.sin(p.a);cx.fillStyle='#ffd77a';cx.shadowBlur=8;cx.shadowColor='#ffb300';cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.3);cx.fill();cx.shadowBlur=0;continue}
+  p.vy+=p.g;p.vx*=.985;if(p.g)p.vy*=.96;p.rot+=p.vr;p.life-=p.g?.007:.003;if(p.life<=0||p.y>H+30){P.splice(i,1);continue}
+  cx.globalAlpha=Math.min(1,p.life*2);cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);
+  if(p.t=='f'){for(let k=0;k<6;k++){cx.rotate(1.047);cx.translate(p.r*.5,0);ell(p.r*.7,p.c);cx.translate(-p.r*.5,0)}cx.fillStyle='#7a2b00';cx.beginPath();cx.arc(0,0,p.r*.22,0,6.3);cx.fill()}else ell(p.r,p.c);cx.restore()}
+ cx.globalAlpha=1;requestAnimationFrame(loop)})();
+let lt=0;addEventListener('pointerdown',e=>burst(e.clientX,e.clientY,14));
+addEventListener('pointermove',e=>{if(e.buttons&&performance.now()-lt>50){lt=performance.now();petal(e.clientX,e.clientY,(Math.random()-.5)*2,Math.random()*2,Math.random()<.3)}});
+function bell(v=.25,f=520){if(!AC)return;try{[1,2.76,5.4,8.9].forEach((m,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.frequency.value=f*m;g.gain.setValueAtTime(v/(i+1),AC.currentTime);g.gain.exponentialRampToValueAtTime(.0001,AC.currentTime+3.5/(i+1));o.connect(g).connect(AC.destination);o.start();o.stop(AC.currentTime+4)})}catch(e){}}
+function startMusic(){if(music||!AC)return;try{const n=[130.8,196,261.6,329.6].map(f=>{const o=AC.createOscillator(),g=AC.createGain();o.frequency.value=f;g.gain.value=.025;o.connect(g).connect(AC.destination);o.start();return o});music={n,t:setInterval(()=>bell(.07,Math.random()<.5?700:830),1600)}}catch(e){}}
+$('#snd').onclick=()=>{if(music){music.n.forEach(o=>o.stop());clearInterval(music.t);music=null;$('#snd').style.opacity=.4}else{startMusic();$('#snd').style.opacity=1}};
+const vib=n=>{try{navigator.vibrate(n)}catch(e){}};
+const tb=$('#top');for(let i=0;i<10;i++)tb.insertBefore(document.createElement('b'),$('#snd'));
+function ui(art,k,t,p,b){const a=$('#art');a.innerHTML=art;a.onclick=null;$('#k').textContent=k;$('#t').innerHTML=t;$('#p').textContent=p;const g=$('#go');g.textContent=b||'';g.style.display=b?'':'none';g.classList.remove('pop');$('#re').style.display='none';A=null}
+function ready(l){const g=$('#go');g.textContent=l;g.style.display='';g.classList.add('pop');A=()=>go(scene+1);burst(W/2,H/2,28);bell(.15,640);vib(30)}
+$('#go').onclick=()=>A&&A();
+function go(n){document.body.classList.add('out');setTimeout(()=>{scene=n;fall=n>=9;[...tb.children].forEach((b,i)=>b.classList&&b.id!='snd'&&b.classList.toggle('on',i<=n));S[n]();document.body.classList.remove('out')},750)}
+const shr=c=>`<svg class="sh ${c}" viewBox="0 0 300 340"><defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#8a5a0c"/><stop offset=".5" stop-color="#ffe08a"/><stop offset="1" stop-color="#8a5a0c"/></linearGradient></defs>
+<path d="M30 340V120Q30 20 150 12Q270 20 270 120V340" fill="#2b0508" stroke="url(#g2)" stroke-width="10"/><circle cx="150" cy="135" r="108" fill="url(#hl)"/>
+<g stroke="#ffd36a" stroke-width="5" stroke-linecap="round"><path d="M150 140L60 85M150 140L50 130M150 140L62 185M150 140L240 85M150 140L250 130M150 140L238 185"/><path d="M150 140L150 40" stroke="#fff3b0"/></g>
+<path d="M92 330Q110 190 150 175Q190 190 208 330Z" fill="#c4141c" stroke="#ffd36a" stroke-width="3"/><circle cx="150" cy="140" r="26" fill="#e2a272"/><path d="M122 126L130 90L150 108L170 90L178 126Z" fill="url(#g2)"/><circle cx="150" cy="123" r="3" fill="#b3121b"/><path d="M140 148Q150 154 160 148" stroke="#7a1010" stroke-width="2.5" fill="none"/>
+<g fill="#ffb7c5" opacity=".9">${[0,1,2,3,4,5,6].map(i=>`<ellipse cx="${60+i*30}" cy="332" rx="16" ry="8" transform="rotate(${(i-3)*8} ${60+i*30} 332)"/>`).join('')}</g></svg>`;
+const mand=()=>{let s='<svg viewBox="-200 -200 400 400" style="animation:spin 120s linear infinite;filter:drop-shadow(0 0 16px #f4a21e99)"><g fill="none" stroke="#f4c15a" stroke-width="1.4">';for(let i=0;i<16;i++)s+=`<ellipse rx="16" ry="62" cy="-125" transform="rotate(${i*22.5})"/>`;for(let i=0;i<24;i++)s+=`<ellipse rx="8" ry="30" cy="-160" transform="rotate(${i*15+7})" opacity=".7"/>`;return s+'<circle r="188"/><circle r="64"/><circle r="52" stroke-dasharray="3 5"/></g><circle r="46" fill="url(#hl)"/></svg>'};
+const S=[
+()=>{ui(mand(),'Durga Ashtami · 2026','SHAKTI','A divine Kanjak Puja experience. Jai Mata Di.','Enter the temple');A=()=>{try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();bell(.3);startMusic()}catch(e){}$('#snd').style.display='';burst(W/2,H*.4,50);go(1)}},
+()=>{let i=0;const seen=new Set([0]),C=[['८','Maha Ashtami','The eighth day of Sharad Navratri, the day Maa Durga is worshipped in her most powerful form. In 2026 it falls on 19 October in many panchangs, and 18 October in some.'],['✦','Maa Mahagauri','The eighth form of Durga: serene, radiant and dressed in white. She is prayed to for purity, peace and strength.'],['९','Kanya Pujan','Nine young girls are honoured as the nine forms of Devi. Their feet are washed, tilak is applied, and they are fed and given gifts. It may be done on Ashtami or Navami.'],['☸','Sandhi Puja','The sacred hour at the meeting of Ashtami and Navami, the heart of Durga Puja in Bengal.'],['❋','The Bhog','Halwa, puri and kala chana: the traditional Kanjak prasad, served with love.']];
+ const draw=()=>{const [g,t,x]=C[i];$('#art').innerHTML=`<div class="card"><span>${g}</span><h3>${t}</h3><p>${x}</p><em>${i+1} / 5 · TAP TO TURN</em></div>`};
+ ui('','Know the day','Durga Ashtami','Tap the card to turn through five things to know.');draw();$('#art').onclick=()=>{i=(i+1)%5;draw();bell(.08,880);seen.add(i);if(seen.size==5&&!A){$('#art').onclick=null;ready('Prepare the temple')}}},
+()=>{let n=0;ui(`<div class="col">${shr('dim')}<div class="row">${'<div class="diya"><div class="flame"></div></div>'.repeat(5)}</div></div>`,'Step 1','Prepare the temple','Touch each diya to light it. The sanctum glows as the lamps catch.');
+ document.querySelectorAll('.diya').forEach(d=>d.onclick=()=>{if(d.classList.contains('on'))return;d.classList.add('on');bell(.1,900);vib(15);if(++n==5){$('.sh').classList.replace('dim','lit');setTimeout(()=>ready('Begin the aarti'),1400)}})},
+()=>{let n=0;ui(`<div class="col">${shr('lit')}<div class="orb"><div class="plate"><div class="flame"></div><div class="smoke"></div></div></div></div>`,'Step 2','Pooja &amp; aarti','The aarti turns before Maa. Ring the bell three times.','Ring the bell');A=()=>{bell(.3,600);vib(40);burst(W/2,H*.3,18);if(++n==3){$('#go').style.display='none';setTimeout(()=>ready('Welcome the kanya'),900)}}},
+()=>{let p=0,d=0,lx,ly,arcs='';for(let i=0;i<4;i++){const d1=`M94 ${258+i*10}Q150 ${284+i*10} 206 ${266+i*10}`;arcs+=`<path class="m" data-i="${i}" d="${d1}" pathLength="1" stroke="#c4101a" stroke-width="9"/><path class="m" data-i="${i}" d="${d1}" pathLength="1" transform="translate(0 -2)" stroke="#ff8a78" stroke-width="2"/>`}
+ ui(`<svg id="sv" viewBox="0 0 300 380" style="touch-action:none"><ellipse cx="150" cy="372" rx="90" ry="8" fill="#0007"/><g stroke-linecap="round" fill="none" stroke="url(#sk)" stroke-width="27"><path d="M106 172L100 82"/><path d="M134 162L132 58"/><path d="M164 164L166 68"/><path d="M192 174L198 104"/><path d="M92 224L52 178" stroke-width="30"/></g>
+ <g stroke="#ffe0c4" stroke-width="4" opacity=".45" stroke-linecap="round"><path d="M99 168L95 86"/><path d="M130 158L128 62"/><path d="M161 160L163 72"/><path d="M189 170L194 108"/></g>
+ <path d="M88 252Q72 200 84 160L216 160Q228 200 212 252Z" fill="url(#sk)"/><path d="M98 250H202L210 380H90Z" fill="url(#sk)"/>
+ <g fill="#f4b8a2"><ellipse cx="100" cy="85" rx="9" ry="12"/><ellipse cx="132" cy="62" rx="9" ry="12"/><ellipse cx="166" cy="72" rx="9" ry="12"/><ellipse cx="198" cy="106" rx="8" ry="11"/><ellipse cx="50" cy="180" rx="9" ry="11" transform="rotate(-45 50 180)"/></g>
+ <g fill="#7a3a12" opacity=".7"><circle cx="150" cy="200" r="4"/>${[0,1,2,3,4,5].map(k=>`<circle cx="${150+Math.cos(k)*13}" cy="${200+Math.sin(k)*13}" r="2.6"/>`).join('')}<circle cx="120" cy="224" r="2.5"/><circle cx="182" cy="228" r="2.5"/><circle cx="150" cy="232" r="2.5"/></g>
+ <g fill="none" stroke="#e8b44a" stroke-width="9" stroke-linecap="round"><path d="M92 330Q150 350 208 330"/><path d="M92 346Q150 366 208 346"/></g><g fill="none" stroke-linecap="round">${arcs}</g>
+ <g id="kn" opacity="0"><circle cx="206" cy="299" r="9" fill="#c4101a"/><path class="tl" d="M206 299Q194 326 200 350" stroke="#c4101a" stroke-width="4" fill="none"/><path class="tl" d="M206 299Q220 326 216 348" stroke="#c4101a" stroke-width="4" fill="none"/></g></svg>`,'Step 3 · Moli','Tie the sacred thread','Drag your finger across the wrist to wrap the red moli.');
+ const el=[...document.querySelectorAll('.m')],up=()=>el.forEach(e=>e.style.strokeDashoffset=Math.max(0,Math.min(1,1-(p*4-+e.dataset.i)))),sv=$('#sv');el.forEach(e=>e.style.strokeDasharray=1);up();
+ sv.onpointerdown=e=>{d=1;lx=e.clientX;ly=e.clientY};addEventListener('pointerup',()=>d=0);
+ sv.onpointermove=e=>{if(!d||p>=1)return;p=Math.min(1,p+Math.hypot(e.clientX-lx,e.clientY-ly)/420);lx=e.clientX;ly=e.clientY;up();vib(3);if(p>=1){const k=$('#kn');k.style.transition='opacity .4s';k.setAttribute('opacity',1);k.animate([{transform:'scale(2.2)'},{transform:'scale(1)'}],{duration:600,easing:'cubic-bezier(.3,1.6,.5,1)'});k.style.transformOrigin='206px 299px';$('#p').textContent='The knot settles. The thread is her protection.';setTimeout(()=>ready('Apply the tika'),900)}}},
+()=>{let d=0,x=240,y=330,on=0;ui(`<svg id="sv" viewBox="0 0 300 400" style="touch-action:none"><path d="M10 400Q0 120 150 14Q300 120 290 400Z" fill="#a3121f" stroke="#e8b44a" stroke-width="3"/><path d="M40 400Q36 150 150 50Q264 150 260 400" fill="none" stroke="#e8b44a55" stroke-dasharray="2 6"/><ellipse cx="150" cy="150" rx="90" ry="112" fill="#170807"/><rect x="128" y="250" width="44" height="80" fill="#d3946a"/><ellipse cx="150" cy="178" rx="70" ry="88" fill="url(#sk)"/>
+ <path d="M80 165Q86 92 150 84Q214 92 220 165Q204 108 150 104Q96 108 80 165Z" fill="#170807"/><path d="M150 84V104" stroke="#e8b44a" stroke-width="2"/><ellipse cx="150" cy="108" rx="4" ry="6" fill="#e8b44a"/>
+ <g fill="none" stroke="#2a1210" stroke-linecap="round"><path d="M108 150Q124 142 138 150" stroke-width="4"/><path d="M162 150Q176 142 192 150" stroke-width="4"/><path d="M110 170Q124 180 138 170M162 170Q176 180 190 170" stroke-width="3"/><path d="M150 178Q145 204 139 212Q150 218 161 212" stroke="#b97a58" stroke-width="2.5"/></g>
+ <path d="M134 232Q150 242 166 232Q150 226 134 232Z" fill="#b83a4a"/><ellipse cx="108" cy="208" rx="14" ry="9" fill="#e8706a" opacity=".25"/><ellipse cx="192" cy="208" rx="14" ry="9" fill="#e8706a" opacity=".25"/>
+ <g fill="#e8b44a"><circle cx="80" cy="200" r="5"/><path d="M80 206L76 224L84 224Z"/><circle cx="220" cy="200" r="5"/><path d="M220 206L216 224L224 224Z"/></g>
+ <circle class="hint" id="tg" cx="150" cy="128" r="17" fill="none" stroke="#ffe08a" stroke-width="2" stroke-dasharray="3 4"/>
+ <g id="tk" opacity="0"><ellipse cx="150" cy="128" rx="5.5" ry="12" fill="#c4101a"/><ellipse cx="148.5" cy="124" rx="1.6" ry="4" fill="#ff8a78"/>${[[-9,-6],[9,-4],[-8,8],[10,9],[0,-18],[1,20]].map(g=>`<ellipse cx="${150+g[0]}" cy="${128+g[1]}" rx="1.8" ry="2.8" fill="#fff6e0"/>`).join('')}</g>
+ <path id="fl" d="M286 400L240 330" stroke="url(#sk)" stroke-width="26" stroke-linecap="round" fill="none"/><circle id="ft" cx="240" cy="330" r="12" fill="#c4101a"/></svg>`,'Step 3 · Tika','Apply the tika','Drag the fingertip to her forehead and lift to bless her.');
+ const sv=$('#sv'),mv=e=>{const q=sv.createSVGPoint();q.x=e.clientX;q.y=e.clientY;const r=q.matrixTransform(sv.getScreenCTM().inverse());x=r.x;y=r.y-26;set()},set=()=>{$('#fl').setAttribute('d',`M286 410L${x} ${y}`);$('#ft').setAttribute('cx',x);$('#ft').setAttribute('cy',y)};
+ sv.onpointerdown=e=>{if(!on){d=1;mv(e)}};sv.onpointermove=e=>{if(d&&!on)mv(e)};
+ sv.onpointerup=()=>{if(!d||on)return;d=0;if(Math.hypot(x-150,y-128)<34){on=1;x=150;y=132;set();vib(40);setTimeout(()=>{const t=$('#tk');t.style.transition='opacity .3s';t.style.opacity=1;t.style.transformOrigin='150px 128px';t.animate([{transform:'scale(0)'},{transform:'scale(1.3)'},{transform:'scale(1)'}],{duration:700});$('#tg').remove();x=240;y=330;$('#fl').style.transition=$('#ft').style.transition='all .8s';set();const r=sv.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height*.3,40);$('#p').textContent='Blessed. She smiles. Jai Mata Di.';setTimeout(()=>ready('Serve the thali'),900)},350)}}},
+()=>{let k=0;const pos=(x,y,w)=>`left:${140+x-w/2}px;top:${140+y-w/2}px;width:${w}px;height:${w}px`,bw=(x,y,c,sp)=>`<div class="it bowl" style="${pos(x,y,88)}"><b style="background:${c}"></b><u style="${sp}"></u></div>`;
+ const L=[()=>bw(-72,-54,'radial-gradient(circle at 38% 32%,#ffcf6a,#e08a1c 55%,#8a4a0a)','width:4px;height:4px;background:#7fb04a;box-shadow:9px 3px #7fb04a,-8px 6px #e9d28a,3px -10px #7fb04a,12px -4px #e9d28a,-10px -6px #7fb04a,-2px 12px #e9d28a'),
+ ()=>[0,1,2].map(j=>`<div class="it puri" style="${pos(-2+j*7,70-j*8,80)};animation-delay:${j*.15}s"></div>`).join(''),
+ ()=>bw(72,-54,'radial-gradient(circle at 40% 30%,#a5561c,#5b2808 70%)','width:8px;height:8px;background:#d9a55a;box-shadow:12px 4px #c8924a,-11px 8px #d9a55a,5px -13px #c8924a,-14px -5px #d9a55a,15px -9px #c8924a,0 14px #c8924a'),
+ ()=>Array.from({length:12},(_,j)=>{const a=j*.524;return `<div class="it mg" style="${pos(Math.cos(a)*118,Math.sin(a)*118,26)};animation-delay:${j*.07}s"></div>`}).join(''),
+ ()=>`<div class="it" style="${pos(-90,66,80).replace(/height:80px/,'height:44px')}"><div class="note">₹ 101</div></div>`],N=['Place the puris','Add the chole','Offer marigolds','Place the dakshina','Complete'];
+ ui(`<div class="tray" id="tr"><div class="plane" id="pl"><div class="it thali"></div></div></div>`,'Step 4','The Kanjak thali','Drag to turn the thali. Place each offering with care.','Place the halwa');
+ const pl=$('#pl');let r=0,dx=null;const tr=$('#tr');tr.onpointerdown=e=>dx=e.clientX;addEventListener('pointerup',()=>dx=null);tr.onpointermove=e=>{if(dx!=null){r+=(e.clientX-dx)*.7;dx=e.clientX;pl.style.setProperty('--r',r+'deg')}};
+ A=()=>{pl.insertAdjacentHTML('beforeend',L[k]());bell(.12,300+k*90);vib(20);setTimeout(()=>burst(W/2,H*.35,8),500);k++;if(k<5)$('#go').textContent=N[k-1];else{$('#go').style.display='none';$('#p').textContent='A thali full of devotion, ready for the little goddesses.';setTimeout(()=>ready('Serve the kanyas'),900)}}},
+()=>{let k=0,s='';for(let i=0;i<9;i++){const a=Math.PI-i*Math.PI/8,x=160+128*Math.cos(a),y=200-120*Math.sin(a);s+=`<g class="ky" id="ky${i}" transform="translate(${x} ${y})"><circle r="21" fill="#ffffff14" stroke="#f4c15a66"/><circle cy="-6" r="7.5" fill="#efb88e"/><path d="M-11 15Q0 -2 11 15Z" fill="${['#c4141c','#e8334a','#ff8a00','#d946ef','#f4c15a','#e8334a','#c4141c','#ff8a00','#d946ef'][i]}"/><circle cy="-10" r="1.5" fill="#c4101a"/></g>`}
+ ui(`<svg viewBox="0 0 320 240">${s}<text id="ct" x="160" y="170" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="58" fill="#f4c15a">0 / 9</text></svg>`,'Step 5','Prasad, dakshina &amp; aashirwad','Wash her feet, with love.','Honour a kanya');
+ const T=['Wash her little feet with clean water.','Apply tika and serve halwa, puri and chana.','Offer dakshina, then touch her feet for aashirwad.'];
+ A=()=>{$('#ky'+k).classList.add('on');k++;$('#ct').textContent=k+' / 9';const r=$('#ky'+(k-1)).getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,18);bell(.1,700+k*40);vib(20);$('#p').textContent=T[Math.min(2,k/3|0)];if(k==9){$('#go').style.display='none';$('#p').textContent='Maa has blessed you through them. May every wish be heard.';setTimeout(()=>ready('Receive your blessing'),1100)}}},
+()=>{ui(`<div class="col" style="justify-content:center;gap:18px"><div class="card" style="animation:none"><span>ॐ</span><h3>Your blessing awaits</h3></div><input id="n" placeholder="Your name" maxlength="28"></div>`,'Step 6','Maa knows your name','Write your name to receive a personal blessing.','Reveal blessing');A=()=>{NM=$('#n').value.trim()||'Beloved Devi';go(9)}},
+()=>{ui(`<div class="card"><span>✧ जय माता दी ✧</span><h3 id="nm"></h3><p>May Maa Durga bless your life with happiness, courage, good health, peace and prosperity. May every new beginning bring light, and may you always be surrounded by love.</p><em>WITH DEVOTION · DURGA ASHTAMI 2026</em></div>`,'Aashirwad','Jai Mata Di','Share this blessing with someone you love.','Share blessing');$('#nm').textContent='For '+NM;$('#re').style.display='block';burst(W/2,H*.3,70);bell(.3);setTimeout(()=>bell(.2,700),700);
+ A=()=>{const u=location.href,t='🌺 जय माता दी! Receive Maa Durga\'s Ashtami blessing in this Kanjak Puja experience: ';if(navigator.share)navigator.share({title:'SHAKTI',text:t,url:u}).catch(()=>{});else open('https://wa.me/?text='+encodeURIComponent(t+u))}}];
+go(0);
+</script></body></html>
